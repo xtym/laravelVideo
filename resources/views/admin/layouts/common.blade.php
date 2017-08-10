@@ -3,14 +3,29 @@
 <head>
     <meta charset="utf-8">
     <title>控制台</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('css/identify.css')}}" />
+    <link rel="stylesheet" href="{{asset('node_modules/hdjs/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/layout.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('css/control_index.css')}}" />
     <script type="text/javascript" src="{{asset('js/jquery-1.7.2.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/haidao.offcial.general.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/select.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/haidao.validate.js')}}"></script>
+    <script>
+        hdjs = {
+            'base': '/node_modules/hdjs',
+        }
+    </script>
+    <script src="{{asset('node_modules/hdjs/app/util.js')}}"></script>
+    <script src="{{asset('node_modules/hdjs/require.js')}}"></script>
+    <script src="{{asset('node_modules/hdjs/config.js')}}"></script>
+    <script>
+        require(['jquery'], function ($,util) {
+            //为异步请求设置CSRF令牌
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        })
+    </script>
 </head>
 
 <body>
@@ -30,7 +45,7 @@
             <li class="fl dropdown topbar-notice topbar-btn">
                 <a href="#" class="dropdown-toggle">
                     <span class="icon-notice"></span>
-                    <span class="topbar-num have">0</span>
+                    {{--<span class="topbar-num have">0</span>--}}
                 </a>
             </li>
             <li class="fl topbar-info-item">
@@ -40,8 +55,8 @@
                         <span class="icon-arrow-down"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">模板开发手册</a></li>
-                        <li><a href="#">某某数据字典</a></li>
+                        <li><a href="#">使用文档</a></li>
+                        <li><a href="#">联系我们</a></li>
                     </ul>
                 </div>
             </li>
@@ -52,6 +67,7 @@
                         <span class="icon-arrow-down"></span>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a href="/admin/changepassword">修改密码</a></li>
                         <li><a href="/admin/logout">退出</a></li>
                     </ul>
                 </div>
@@ -68,68 +84,45 @@
                 <div class="sidebar-title">
                     <a href="#">
                         <span class="icon"><b class="fl icon-arrow-down"></b></span>
-                        <span class="text-normal">产品与服务</span>
+                        <span class="text-normal">便签管理</span>
                     </a>
                 </div>
                 <ul class="sidebar-trans">
                     <li>
                         <a href="webSet.html">
                             <b class="sidebar-icon"><img src="{{asset('images/icon_author.png')}}" width="16" height="16" /></b>
-                            <span class="text-normal">站点管理</span>
+                            <span class="text-normal">标签列表</span>
                         </a>
                     </li>
                     <li>
                         <a href="smsInfo.html">
                             <b class="sidebar-icon"><img src="{{asset('images/icon_message.png')}}" width="16" height="16" /></b>
-                            <span class="text-normal">短信</span>
+                            <span class="text-normal">添加标签</span>
                         </a>
                     </li>
-                    <!-- <li>
-                        <a href="#">
-                            <b class="sidebar-icon"><img src="Images/icon_market.png" width="16" height="16" /></b>
-                            <span class="text-normal">云市场</span>
-                        </a>
-                    </li> -->
                 </ul>
             </div>
             <div class="sidebar-nav">
                 <div class="sidebar-title">
                     <a href="#">
                         <span class="icon"><b class="fl icon-arrow-down"></b></span>
-                        <span class="text-normal">用户中心</span>
+                        <span class="text-normal">课程管理</span>
                     </a>
                 </div>
                 <ul class="sidebar-trans">
                     <li>
                         <a href="userInfo.html">
                             <b class="sidebar-icon"><img src="{{asset('images/icon_cost.png')}}" width="16" height="16" /></b>
-                            <span class="text-normal">账号管理</span>
+                            <span class="text-normal">课程列表</span>
                         </a>
                     </li>
                     <li>
                         <a href="identify.html">
                             <b class="sidebar-icon"><img src="{{asset('images/icon_authentication.png')}}" width="16" height="16" /></b>
-                            <span class="text-normal">实名认证</span>
+                            <span class="text-normal">课程添加</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="message.html">
-                            <b class="sidebar-icon"><img src="{{asset('images/icon_news.png')}}" width="16" height="16" /></b>
-                            <span class="text-normal">消息中心</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="money.html">
-                            <b class="sidebar-icon"><img src="{{asset('images/icon_gold.png')}}" width="16" height="16" /></b>
-                            <span class="text-normal">金币管理</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="order.html">
-                            <b class="sidebar-icon"><img src="{{asset('images/icon_order.png')}}" width="16" height="16" /></b>
-                            <span class="text-normal">订单管理</span>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </div>

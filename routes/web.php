@@ -13,6 +13,8 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('test','Test@index')->name('test');
 
 require __DIR__.'/admin/admin.php';

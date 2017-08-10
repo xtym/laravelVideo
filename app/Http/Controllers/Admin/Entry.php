@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PasswordRequest;
 use Request;
 
 /**
@@ -36,7 +37,6 @@ class Entry extends Controller
             if ($status){
                 return redirect('/admin/index');
             }
-
             // $status为假 提示消息 登陆失败 闪存
             return redirect('/admin/login')->with('error','用户名或密码错误');
         }
@@ -52,9 +52,25 @@ class Entry extends Controller
     }
 
     /**
-     * 修改后面用户密码
+     * 载入修改管理员密码的用户界面
      */
     public function changePassword(){
-        return '修改密码';
+        return view('admin.entry.changepassword');
     }
+
+    /**
+     * 修改用户密码
+     */
+    public function password(PasswordRequest $request){
+        // 获取用户信息
+        $model = \Auth::guard('admin')->user();
+        $model->password = bcrypt($request->input('password'));
+        // 保存密码
+        $model->save();
+        // 调用页面中的bootstrap的模态框
+        //调用页面的bootstrap的模块的框
+        flash()->overlay('修改成功', '友情提示');
+        return redirect('admin/changepassword');
+    }
+
 }

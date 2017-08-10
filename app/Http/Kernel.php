@@ -12,7 +12,10 @@ class Kernel extends HttpKernel
      * These middleware are run during every request to your application.
      *
      * @var array
+     *
+     * 全局中间件
      */
+
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
@@ -24,8 +27,11 @@ class Kernel extends HttpKernel
      * The application's route middleware groups.
      *
      * @var array
+     *
+     * 中间件组
      */
     protected $middlewareGroups = [
+        // web路由默认使用的中间件
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -35,7 +41,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-
+        // api路由文件 使用中间件
         'api' => [
             'throttle:60,1',
             'bindings',
@@ -50,6 +56,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     // 路由中间件配置
+    // 自定义路由默认 写在$routeMiddleware中
     //
     protected $routeMiddleware = [
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,

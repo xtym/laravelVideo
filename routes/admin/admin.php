@@ -17,10 +17,13 @@
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
     // 后台首页
     Route::get('index','Entry@index');
+    Route::get('/','Entry@index');
     // 后台登录
     Route::match(['get','post'],'login','Entry@login');
     // 后台退出
     Route::get('logout','Entry@logout');
-    // 后台首页
+    // 载入后台修改密码界面
     Route::get('changepassword','Entry@changepassword');
+    // 后台修改密码
+    Route::post('password','Entry@password');
 });
