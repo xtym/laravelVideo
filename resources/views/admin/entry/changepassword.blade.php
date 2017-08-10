@@ -1,4 +1,4 @@
-@extends('admin.layouts.common')
+@extends('layout.common')
 
 @section('content')
     <div class="padding-big background-color">

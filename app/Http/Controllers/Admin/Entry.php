@@ -13,11 +13,6 @@ use Request;
  */
 class Entry extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('admin.auth')->except('login');
-    }
-
     //后台首页
     public function index(){
         return view('admin.entry.index');

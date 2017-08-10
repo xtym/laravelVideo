@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8">
     <title>控制台</title>
-    <link rel="stylesheet" href="{{asset('node_modules/hdjs/css/bootstrap.min.css')}}">
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/layout.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('node_modules/hdjs/css/bootstrap.min.css')}}">
+
     <script type="text/javascript" src="{{asset('js/jquery-1.7.2.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/haidao.offcial.general.js')}}"></script>
     <script>
@@ -89,13 +91,13 @@
                 </div>
                 <ul class="sidebar-trans">
                     <li>
-                        <a href="webSet.html">
+                        <a href="/admin/tag">
                             <b class="sidebar-icon"><img src="{{asset('images/icon_author.png')}}" width="16" height="16" /></b>
                             <span class="text-normal">标签列表</span>
                         </a>
                     </li>
                     <li>
-                        <a href="smsInfo.html">
+                        <a href="/admin/tag/create">
                             <b class="sidebar-icon"><img src="{{asset('images/icon_message.png')}}" width="16" height="16" /></b>
                             <span class="text-normal">添加标签</span>
                         </a>
@@ -144,6 +146,8 @@
         }
     });
 </script>
+
+
 </body>
 
 </html>
