@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vedio extends Model
+class Video extends Model
 {
     //
 }

@@ -32,7 +32,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>['admin.auth'
     Route::resource('tag','Tag',['except'=>['show']]);
 
     // vedio 视频管理资源路由
-    Route::resource('vedio','Vedio');
+    Route::resource('video','Video');
 });
 
 // 没有验证登陆中间件组

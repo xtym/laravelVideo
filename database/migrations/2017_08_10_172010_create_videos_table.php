@@ -13,7 +13,7 @@ class CreateVediosTable extends Migration
      */
     public function up()
     {
-        Schema::create('vedios', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->comment('视频名称');
             $table->string('introduce')->comment('视频介绍');
@@ -32,6 +32,6 @@ class CreateVediosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vedios');
+        Schema::dropIfExists('videos');
     }
 }
