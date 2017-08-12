@@ -13,6 +13,10 @@
     <script>
         hdjs = {
             'base': '/node_modules/hdjs',
+            'uploader': '/component/uploader',
+            'filesLists': '/component/filelists?',
+            'removeImage': 'http://www.houdunwang.com?s=component/upload/removeImage&siteid=11',
+            'ossSign': 'http://www.houdunwang.com?s=component/oss/sign&siteid=11',
         }
     </script>
     <script src="{{asset('node_modules/hdjs/app/util.js')}}"></script>
@@ -108,20 +112,20 @@
                 <div class="sidebar-title">
                     <a href="#">
                         <span class="icon"><b class="fl icon-arrow-down"></b></span>
-                        <span class="text-normal">视频管理</span>
+                        <span class="text-normal">课程管理</span>
                     </a>
                 </div>
                 <ul class="sidebar-trans">
                     <li>
-                        <a href="/admin/video">
+                        <a href="/admin/lesson">
                             <b class="sidebar-icon"><img src="{{asset('images/icon_cost.png')}}" width="16" height="16" /></b>
-                            <span class="text-normal">视频列表</span>
+                            <span class="text-normal">课程列表</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/admin/video/create">
+                        <a href="/admin/lesson/create">
                             <b class="sidebar-icon"><img src="{{asset('images/icon_authentication.png')}}" width="16" height="16" /></b>
-                            <span class="text-normal">视频添加</span>
+                            <span class="text-normal">课程添加</span>
                         </a>
                     </li>
 

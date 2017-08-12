@@ -17,4 +17,12 @@ Route::get('/', function () {
 
 Route::get('test','Test@index')->name('test');
 
+// 组件 路由组
+Route::group(['prefix'=>'component','namespace'=>'Component'],function (){
+    Route::match(['get','post'],'uploader','Uploader@uploader');
+    Route::match(['get','post'],'filelists','Uploader@filesLists');
+    Route::match(['get','post'],'oss','Oss@sign');
+
+});
+
 require __DIR__.'/admin/admin.php';

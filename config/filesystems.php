@@ -45,7 +45,9 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            // 'root' => storage_path('app'),
+            // 修改上传目录 到public下面
+            'root' => 'attachment',
         ],
 
         'public' => [
