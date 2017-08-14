@@ -168,7 +168,8 @@ class Lesson extends Controller
         // 删除中间表中数据
         LessonTag::where(['lesson_id'=>$id])->delete();
         // 删除视频表
-        Video::where(['lesson_id'=>$id])->delete();
+//        Video::where(['lesson_id'=>$id])->delete();
+        Video::where('lesson_id',$id)->delete();
         // 返回删除信息
         return ['msg'=>'删除成功','status'=>true];
     }

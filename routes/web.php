@@ -26,3 +26,4 @@ Route::group(['prefix'=>'component','namespace'=>'Component'],function (){
 });
 
 require __DIR__.'/admin/admin.php';
+require __DIR__.'/api.php';
