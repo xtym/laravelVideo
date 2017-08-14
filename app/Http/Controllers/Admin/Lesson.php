@@ -57,12 +57,15 @@ class Lesson extends Controller
 
         // 添加中间表
         $lessonTag = new LessonTag();
-        foreach ($request['tid'] as $tid){
-            $lessonTag->create([
-                'lesson_id' => $lesson->id,
-                'tag_id' => $tid
-            ]);
+        if ( $request['tid']){
+            foreach ($request['tid'] as $tid){
+                $lessonTag->create([
+                    'lesson_id' => $lesson->id,
+                    'tag_id' => $tid
+                ]);
+            }
         }
+
 
         // 添加视频表
         foreach (json_decode($request['videos'],true) as $v){
@@ -131,12 +134,15 @@ class Lesson extends Controller
         //中间表，先删后填
         LessonTag::where(['lesson_id'=>$id])->delete();
         $lessonTag = new LessonTag();
-        foreach ($request['tid'] as $tid){
-            $lessonTag->create([
-                'lesson_id' => $lesson->id,
-                'tag_id' => $tid
-            ]);
+        if ($request['tid']){
+            foreach ($request['tid'] as $tid){
+                $lessonTag->create([
+                    'lesson_id' => $lesson->id,
+                    'tag_id' => $tid
+                ]);
+            }
         }
+
         //视频表,先删后填
         $lesson->videos()->delete();
         foreach (json_decode($request['videos'],true) as $v){
