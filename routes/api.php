@@ -28,5 +28,6 @@ Route::group(['prefix'=>'api','namespace'=>'Api'],function (){
     Route::get( '/tags', 'Handle@tags' );
     Route::get( '/lessons/{tid?}', 'Handle@lessons' );
     Route::get( '/videos/{lid}', 'Handle@videos' );
+    Route::get( '/getLessonTitle/{lid}', 'Handle@getLessonTitle' );
 
 });
